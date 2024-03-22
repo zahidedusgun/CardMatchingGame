@@ -23,7 +23,8 @@ function App() {
   const [cards, setCards] = React.useState(cardList);
 
   const CardsOnScreen = () => {
-    setCards([...cardList], [...cardList]);
+    const ShuffleCards =[...cardList.sort(() => Math.random() - 0.5)]
+    setCards(ShuffleCards);
   };
 
   React.useEffect(() => {
@@ -34,7 +35,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h3>Card Matching Game</h3>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" onClick={CardsOnScreen}>
           Start
         </Button>
 
