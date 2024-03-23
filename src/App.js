@@ -26,6 +26,7 @@ function App() {
   const [firstSelected, setFirstSelected] = React.useState(null);
   const [secondSelected, setSecondSelected] = React.useState(null);
   const [disabled, setDisabled] = React.useState(false);
+  const [score, setScore] = React.useState(0);
 
   const CardsOnScreen = () => {
     const ShuffleCards = [...cardList, ...cardList]
@@ -35,6 +36,7 @@ function App() {
     setCards(ShuffleCards);
     setFirstSelected(null);
     setSecondSelected(null);
+    setScore(0);
   };
 
   const handleSelected = (card) => {
@@ -71,6 +73,7 @@ function App() {
     setFirstSelected(null);
     setSecondSelected(null);
     setDisabled(false);
+    setScore(prevScore => prevScore + 1);
   };
   return (
     <div className="App">
